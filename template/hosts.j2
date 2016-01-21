@@ -8,6 +8,12 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 
+[test]
+centos
+
+[ansible_server]
+ubuntu
+
 # Ex 1: Ungrouped hosts, specify before any group headers.
 
 green.example.com
@@ -42,5 +48,3 @@ db02.intranet.mydomain.net
 
 db-[99:101]-node.example.com
 
-[test]
-centos
