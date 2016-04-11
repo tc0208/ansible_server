@@ -1,0 +1,4 @@
+remote_user: fih
+
+ansible_conf_path: /etc/ansible
+

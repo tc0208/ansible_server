@@ -1,0 +1,16 @@
+---
+
+- name: install ansible
+  remote_user: "{{ remote_user }}"
+  become: True
+  apt: name={{ item }} state=present
+  with_items:
+    - ansible
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "14")
+
+- name: deploy ansible.cfg file
+  template: src=ansible.j2 dest={{ ansible_conf_path }}/ansible.cfg owner=root group=root mode=0644
+  become: True
+
+- name: update /etc/ansible/hosts
+  template: src=hosts.j2 dest={{ ansible_conf_path }}/hosts
